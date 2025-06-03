@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.1",
+	"FriendlyName": "IOSQRCodeReader",
+	"Description": "A plugin that enable IOS QR Code Reading functionality in Unreal Engine.",
+	"Category": "Other",
+	"CreatedBy": "Matthew Zane",
+	"CreatedByURL": "https://www.linkedin.com/in/matthewdzane/",
+	"DocsURL": "https://github.com/MatthewDZane/UnrealEngineIOSQRCodeReader#readme",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/0dc1a0fb11f74185a45d708fa5fd30df",
+	"SupportURL": "https://github.com/MatthewDZane/UnrealEngineIOSQRCodeReader",
+	"EngineVersion": "5.4.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Mac",
+		"IOS"
+	],
+	"Modules": [
+		{
+			"Name": "IOSQRCodeReader",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Mac",
+				"IOS"
+			]
+		}
+	]
+}

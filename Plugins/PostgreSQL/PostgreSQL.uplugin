@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "2.0",
+	"FriendlyName": "PostgreSQL Server Integration",
+	"Description": "This integrates PostgreSQL Server in Unreal Engine",
+	"Category": "DataBase",
+	"CreatedBy": "Athian Games",
+	"CreatedByURL": "https://athiangames.com",
+	"DocsURL": "https://docs.athiangames.com/Doc_PostgreSQL.html",
+	"MarketplaceURL": "https://www.unrealengine.com/marketplace/en-US/product/a1badfd1a79d4676888df52bc9b82899",
+	"SupportURL": "",
+	"EngineVersion": "5.4.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "PostgreSQL",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
