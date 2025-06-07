@@ -159,7 +159,7 @@ void AQRCodeReaderActor::SetLandscapeRightEnabled(bool LandscapeRightEnabled) {
 #endif
 }
 
-FString AQRCodeReaderActor::GetQRCodeUrl() {
+FString AQRCodeReaderActor::GetQRCodeString() {
     	const char *c = NULL;
 #if PLATFORM_IOS
     	NSString* urlString = QRCodeReaderImpl.url;
