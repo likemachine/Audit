@@ -12,6 +12,7 @@
 
 #if PLATFORM_IOS
 #include "QRCodeReader.h"
+#include "QRCodeARSessionDelegate.h"
 #endif
 
 #include "Engine/Texture2D.h"
@@ -42,6 +43,8 @@ protected:
 #if PLATFORM_IOS
     // Objective-C QRCodeReader Object
     QRCodeReader* QRCodeReaderImpl;
+    // ARSession delegate forwarding frames to the reader
+    QRCodeARSessionDelegate* ARDelegate;
 #endif
     
 	// Called when the game starts or when spawned
@@ -371,4 +374,11 @@ public:
     */
     UFUNCTION(Blueprintcallable, Category = "IOS QR Code Reader")
     void SetAutoCameraRotateEnabled(bool AutoCameraRotateEnabled);
+
+#if PLATFORM_IOS
+    /**
+    * Passes an ARKit frame to the QR code reader for processing.
+    */
+    void ProcessARFrame(void* ARFramePtr);
+#endif
 };

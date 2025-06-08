@@ -15,13 +15,20 @@ public class IOSQRCodeReader : ModuleRules
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
     
-		PublicDependencyModuleNames.AddRange(
-		    new string[] {
-			"Core",
-			"CoreUObject",
-			"Engine",
-			"InputCore"
-		    }
-        	);
+                PublicDependencyModuleNames.AddRange(
+                    new string[] {
+                        "Core",
+                        "CoreUObject",
+                        "Engine",
+                        "InputCore",
+                        "AugmentedReality",
+                        "AppleARKit"
+                    }
+                );
+
+                if (Target.Platform == UnrealTargetPlatform.IOS)
+                {
+                    PublicFrameworks.AddRange(new string[] { "ARKit", "Vision" });
+                }
 	}
 }

@@ -10,6 +10,8 @@
 
 #if PLATFORM_IOS
 #import <AVFoundation/AVFoundation.h>
+#import <ARKit/ARKit.h>
+#import "QRCodeARSessionDelegate.h"
 #endif
 
 #include "CameraEnumConverter.h"
@@ -26,8 +28,10 @@ AQRCodeReaderActor::AQRCodeReaderActor()
     );
     
 #if PLATFORM_IOS
-	QRCodeReaderImpl = [[QRCodeReader alloc] init];
-    
+        QRCodeReaderImpl = [[QRCodeReader alloc] init];
+
+    ARDelegate = [[QRCodeARSessionDelegate alloc] initWithReader:QRCodeReaderImpl];
+
     QRCodeReaderImpl->Texture = Texture;
     QRCodeReaderImpl->TextureWidth = DEFAULT_TEXTURE_WIDTH;
     QRCodeReaderImpl->TextureHeight = DEFAULT_TEXTURE_HEIGHT;
@@ -259,3 +263,11 @@ void AQRCodeReaderActor::SetAutoCameraRotateEnabled(bool AutoCameraRotateEnabled
     QRCodeReaderImpl->autoCameraRotateEnabled = AutoCameraRotateEnabled;
 #endif
 }
+
+#if PLATFORM_IOS
+void AQRCodeReaderActor::ProcessARFrame(void* ARFramePtr)
+{
+    ARFrame* Frame = (__bridge ARFrame*)ARFramePtr;
+    [QRCodeReaderImpl processARFrame:Frame];
+}
+#endif

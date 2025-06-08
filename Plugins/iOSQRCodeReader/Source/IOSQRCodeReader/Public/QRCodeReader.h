@@ -16,15 +16,14 @@
 
 // AVFoundation provides the camera and QR Code related types
 #import <AVFoundation/AVFoundation.h>
+#import <ARKit/ARKit.h>
+#import <Vision/Vision.h>
 
 /**
 * Defined as a AVCaptureMetadataOutputObjectsDelegate to tell the class to run
 * the captureOutput() function every tick when the camera is on.
 */
-@interface QRCodeReader : NSObject<
-    AVCaptureVideoDataOutputSampleBufferDelegate,
-    AVCaptureMetadataOutputObjectsDelegate
-> {
+@interface QRCodeReader : NSObject {
     @public
     // Texture of the camera feed
     UTexture2D* Texture;
@@ -72,6 +71,13 @@
 * @return YES if successful, NO otherwise
 */
 -(BOOL)startReading;
+
+/**
+* Processes an ARKit frame for video update and QR detection.
+*
+* @param frame The ARFrame from an active ARSession.
+*/
+- (void)processARFrame:(ARFrame*)frame;
 
 /**
 * Turns off the current camera.
